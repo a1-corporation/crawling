@@ -74,8 +74,10 @@ def jobplanet_scheduled_job():
                     mapped = True
                     break
             if not mapped:
-                mapped_skills.append(skill)
+                # 매핑되지 않은 기술 스택을 "Other-{값}" 형식으로 저장
+                mapped_skills.append(f"Other-{skill}")
         return mapped_skills
+
     
     def param(occupation_level1, occupation_level2 , page):
         # Define the parameters
@@ -185,7 +187,7 @@ def jumpit_scheduled_job():
         for category, synonyms in skill_mapping.items():
             if skill_lower in [synonym.lower() for synonym in synonyms]:
                 return category  # 매핑된 카테고리를 반환
-        return skill  # 매핑되지 않으면 원래 스킬 반환
+        return f"Other-{skill}"  # 매핑되지 않으면 "Other-{값}" 형식으로 반환
 
     # min_career가 0인데 (신입) max_career가 7년 이상이면 경력무관 처리
     def determine_career(min_career, max_career):
