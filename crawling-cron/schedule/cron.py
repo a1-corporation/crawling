@@ -181,6 +181,8 @@ def jobplanet_scheduled_job():
     output_filename = generate_filename("jobplanet")
     with open(output_filename, 'w', encoding='utf-8') as json_file:
         json.dump(total_Processing_result_list, json_file, ensure_ascii=False, indent=4)
+        # 웹 백엔드에 전달
+        notify_with_json(output_filename)
 
 
 def jumpit_scheduled_job():
