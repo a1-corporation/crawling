@@ -1,0 +1,24 @@
+[
+    {
+        "title": "test_title",
+        "recruit_id": 884466,
+        "company_name": "test_company",
+        "job_type": [
+            "데이터"
+        ],
+        "sub_types": [
+            "AI/ML Engineer"
+        ],
+        "skills": [
+            "AI-Machine Learning"
+        ],
+        "deadline": "2025-01-14",
+        "location": [
+            "서울"
+        ],
+        "career": "경력",
+        "min_career": 5,
+        "max_career": 10,
+        "url": "https://www.jobplanet.co.kr/job/search?posting_ids%5B%5D=1284356"
+    }
+]
