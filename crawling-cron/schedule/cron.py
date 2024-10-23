@@ -11,6 +11,8 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from django.conf import settings
 from .constants import job_mapping, skill_mapping
 
+from .hook import notify_with_json
+
 
 scheduler = None
 job_locks = {
@@ -278,6 +280,8 @@ def jumpit_scheduled_job():
     output_filename = generate_filename()
     with open(output_filename, 'w', encoding='utf-8') as json_file:
         json.dump(job_data, json_file, ensure_ascii=False, indent=4)
+        # 웹 백엔드에 전달
+        notify_with_json(output_filename)
 
 
 # 크롤링 cron 코드. hour='23', minute='50'이면 매일 23시50분에 실행. 크롤링 시간 필요하므로 텀 두는 것 권장
